@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: radial-gradient(#312d2d,#161616 ) ;
+  perspective: 1000px; /* Enables 3D effect */
+}
+
+.container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.masina {
+  width: 500px;
+  height: auto;
+  transition: transform 3s ease, filter 0.5s ease;
+  border: 8px solid;
+  border-image: linear-gradient(45deg, #d16500, #caba28, #cf5d00) 1;
+  box-shadow: 0 0 25px rgba(255, 165, 0, 0.4);
+  transform-style: preserve-3d;
+  animation: animateBorder 5s infinite;
+  background: #d16500;
+}
+
+.masina:hover {
+  transform: rotateX(720deg) rotateZ(360deg) scale(1.1);
+}
+
+.blurred {
+  filter: blur(4px);
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  pointer-events: none;
+  text-shadow: 0 0 10px black;
+}
+
+@keyframes animateBorder {
+  0% {
+    border-image: linear-gradient(45deg, #d16500, #caba28, #cf5d00) 1;
+  }
+  33% {
+    border-image: linear-gradient(45deg, #cf5d00, #d16500, #caba28) 1;
+  }
+  66% {
+    border-image: linear-gradient(45deg, #caba28, #cf5d00, #d16500) 1;
+  }
+  100% {
+    border-image: linear-gradient(45deg, #d16500, #caba28, #cf5d00) 1;
+  }
+}
